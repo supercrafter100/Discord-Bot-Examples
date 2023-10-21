@@ -73,3 +73,12 @@ import { say } from 'cowsay';
 const output = say({ text: 'mooooo' });
 console.log(output);
 ```
+
+## Installing dependencies from an existing github repository
+
+When using an existing node project from for example github, not all dependencies are shipped.
+
+1. Download a node repository
+2. Use `cd` to enter the project directory
+3. Now run `npm install` to install all the packages
+4. Finally, use `node .` to run the node project!
