@@ -4,6 +4,7 @@ import { config } from 'dotenv';
 import * as choochoo from './commands/choochoo.js';
 import * as gif from './commands/gif.js';
 import * as randomwalk from './commands/randomwalk.js';
+import * as rockpaperscissors from './commands/rockpaperscissors.js';
 
 config();
 
@@ -22,7 +23,7 @@ const client = new Client({
 
 // When the client is ready, run this code (only once)
 client.once(Events.ClientReady, readyDiscord);
-
+client.on('debug', console.log);
 // Login to Discord with your client's token
 client.login(process.env.TOKEN);
 
@@ -39,6 +40,8 @@ client.on('interactionCreate', async (interaction) => {
     await gif.execute(interaction);
   } else if (interaction.commandName === 'randomwalk') {
     await randomwalk.execute(interaction);
+  } else if (interaction.commandName === 'rockpaperscissors') {
+    await rockpaperscissors.execute(interaction);
   }
 });
 
